@@ -39,9 +39,13 @@
 				TmdbFactory.getRatingFromOmdb(data.data.imdb_id).then(data => {
 					MainFactory.view.film_detail.rating = data.data.Ratings;
 				});
+				TmdbFactory.getSubtitles(data.data.imdb_id).then(data => {
+					$scope.$applyAsync(() => {
+						MainFactory.view.subtitles = data.es.url;
+					});
+				});
 			});
 			TmdbFactory.getSimilarFilms(id).then(data => {
-				console.log(data);
 				MainFactory.view.related_films = data.data.results;
 			});
 		}

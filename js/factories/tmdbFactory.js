@@ -17,6 +17,7 @@
 			getFilm: getFilm,
 			getFilms: getFilms,
 			getSimilarFilms: getSimilarFilms,
+			getSubtitles: getSubtitles,
 			getFilteredFilms: getFilteredFilms,
 			getUpcomingFilms: getUpcomingFilms,
 			getRatingFromOmdb: getRatingFromOmdb,
@@ -25,6 +26,23 @@
 		};
 
 		return service;
+
+		function getSubtitles(id) {
+			console.log(id);
+			const OpenSubtitles = require('opensubtitles-api');
+			const OS = new OpenSubtitles('TemporaryUserAgent');
+			return OS.login()
+			.then(res => {
+				return OS.search({
+					imdbid: id,
+					sublanguageid: 'spa',
+					gzip: true
+				}).catch(console.error);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		}
 
 		function getFilm(id) {
 			let url = themoviedb + '/movie/' + id + keyAndConfig + '&append_to_response=videos';

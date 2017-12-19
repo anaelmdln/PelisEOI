@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('PelisEOI').controller('SearchController', SearchController);
 
-	SearchController.inject = ['MainFactory', 'TmdbFactory'];
+	SearchController.inject = ['MainFactory', 'TmdbFactory', '$scope'];
 	
-	function SearchController(MainFactory, TmdbFactory) {
+	function SearchController(MainFactory, TmdbFactory, $scope) {
 		let vm = this;
 
 		MainFactory.view.name = 'search';
@@ -49,9 +49,13 @@
 				TmdbFactory.getRatingFromOmdb(data.data.imdb_id).then(data => {
 					MainFactory.view.film_detail.rating = data.data.Ratings;
 				});
+				TmdbFactory.getSubtitles(data.data.imdb_id).then(data => {
+					$scope.$applyAsync(() => {
+						MainFactory.view.subtitles = data.es.url;
+					});
+				});
 			});
 			TmdbFactory.getSimilarFilms(id).then(data => {
-				console.log(data);
 				MainFactory.view.related_films = data.data.results;
 			});
 		}
