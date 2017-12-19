@@ -1,9 +1,14 @@
 <div class="film_cover" style="background-image: url({{ film.poster_path ? 'https://image.tmdb.org/t/p/w500' + film.poster_path : './assets/no-image.png' }})">
 	<div class="film_overlay">
 		<div class="film_footer">
-			<span class="icon icon_star"></span><span>{{ film.vote_average }}</span>
-			<span class="icon icon_tomato"></span><span>{{ film.vote_average }}%</span>
-			<span class="icon icon_popcorns"></span><span>{{ film.vote_average }}%</span>
+			<span>
+				<span class="icon icon_popcorns_2"></span>
+				<span>{{ film.vote_count }}</span>
+			</span>
+			<span>
+				<span class="icon icon_popcorns"></span>
+				<span>{{ film.vote_average }}%</span>
+			</span>
 		</div>
 	</div>
 </div>

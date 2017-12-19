@@ -17,6 +17,15 @@
 		vm.close = close;
 		vm.view = MainFactory.view;
 		vm.user = {};
+		init();
+
+		function init() {
+			$(document).keyup(function(e) {
+				if (e.keyCode == 27) {
+					$("a.close").click();
+				}
+			});
+		}
 
 		function getIndex(from, film) {
 			if (!vm.view.user[from]) return -1;
@@ -32,6 +41,7 @@
 		};
 
 		function add(from, film) {
+			console.log(film);
 			if (!vm.view.user[from]) vm.view.user[from] = [];
 			let index = getIndex(from, film);
 			if (index !== -1) return null;
@@ -39,6 +49,7 @@
 				id: film.id,
 				poster_path: film.poster_path,
 				vote_average: film.vote_average,
+				vote_count: film.vote_count
 			});
 		}
 

@@ -94,6 +94,10 @@ nav.navbar input#search::placeholder {
 	background-position: -38px -18px;
 	background-size: 94px;
 }
+.icon_popcorns_2 {
+	background-position: 0px -19px;
+	background-size: 96px;
+}
 /* Filters */
 .category {
 	margin-top: 20px;
