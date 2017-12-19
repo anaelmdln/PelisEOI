@@ -4,7 +4,7 @@
 		<div class="detail_header">
 			<h2>
 				<span>{{ filmComponent.view.film_detail.title }} <small>{{ filmComponent.view.film_detail.release_date }}</small></span>
-				<a class="btn close pull-right" ng-click="filmComponent.close()">X</a>
+				<a class="close pull-right" ng-click="filmComponent.close()">X</a>
 			</h2>
 		</div>
 		<hr>
@@ -15,42 +15,42 @@
 			<div class="detail_icons_wrapper">
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('favorites', filmComponent.view.film_detail) === -1" >
 					<a ng-click="filmComponent.add('favorites', filmComponent.view.film_detail)">
-						<span>Favorites</span>
+						<span>Favoritos</span>
 						<br>
 						<span class="detail_icons glyphicon glyphicon glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span>
 					</a>
 				</span>
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('favorites', filmComponent.view.film_detail) !== -1" >
 					<a ng-click="filmComponent.remove('favorites', filmComponent.view.film_detail)">
-						<span>Favorites</span>
+						<span>Favoritos</span>
 						<br>
 						<span class="detail_icons check glyphicon glyphicon glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span>
 					</a>
 				</span>
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('watchLater', filmComponent.view.film_detail) === -1" >
 					<a ng-click="filmComponent.add('watchLater', filmComponent.view.film_detail)">
-						<span>Watch later</span>
+						<span>Ver más tarde</span>
 						<br>
 						<span class="detail_icons glyphicon glyphicon glyphicon glyphicon-time" aria-hidden="true"></span>
 					</a>
 				</span>
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('watchLater', filmComponent.view.film_detail) !== -1" >
 					<a ng-click="filmComponent.remove('watchLater', filmComponent.view.film_detail)">
-						<span>Watch later</span>
+						<span>Ver más tarde</span>
 						<br>
 						<span class="detail_icons check glyphicon glyphicon glyphicon glyphicon-time" aria-hidden="true"></span>
 					</a>
 				</span>
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('watched', filmComponent.view.film_detail) === -1" >
 					<a ng-click="filmComponent.add('watched', filmComponent.view.film_detail)">
-						<span>Watched</span>
+						<span>Ya vistas</span>
 						<br>
 						<span class="detail_icons glyphicon glyphicon glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 					</a>
 				</span>
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('watched', filmComponent.view.film_detail) !== -1" >
 					<a ng-click="filmComponent.remove('watched', filmComponent.view.film_detail)">
-						<span>Watched</span>
+						<span>Ya vistas</span>
 						<br>
 						<span class="detail_icons check glyphicon glyphicon glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 					</a>

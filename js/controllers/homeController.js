@@ -59,20 +59,20 @@
 		};
 
 		vm.orders = [
-		{name:'Popularity', order:'up', value:'popularity.asc'},
-		{name:'Popularity', order:'down', value:'popularity.desc'},
-		{name:'Release date', order:'up', value:'release_date.asc'},
-		{name:'Release date', order:'down', value:'release_date.desc'},
-		{name:'Revenue', order:'up', value:'revenue.asc'},
-		{name:'Revenue', order:'down', value:'revenue.desc'},
-		{name:'Primary release date', order:'up', value:'primary_release_date.asc'},
-		{name:'Primary release date', order:'down', value:'primary_release_date.desc'},
-		{name:'Original title', order:'up', value:'original_title.asc'},
-		{name:'Original title', order:'down', value:'original_title.desc'},
-		{name:'Vote average', order:'up', value:'vote_average.asc'},
-		{name:'Vote average', order:'down', value:'vote_average.desc'},
-		{name:'Vote count', order:'up', value:'vote_count.asc'},
-		{name:'Vote count', order:'down', value:'vote_count.desc'},
+		{name:'Popularidad', order:'up', value:'popularity.asc'},
+		{name:'Popularidad', order:'down', value:'popularity.desc'},
+		{name:'Fecha de lanzamiento', order:'up', value:'release_date.asc'},
+		{name:'Fecha de lanzamiento', order:'down', value:'release_date.desc'},
+		{name:'Ingresos', order:'up', value:'revenue.asc'},
+		{name:'Ingresos', order:'down', value:'revenue.desc'},
+		{name:'Fecha de lanzamiento principal', order:'up', value:'primary_release_date.asc'},
+		{name:'Fecha de lanzamiento principal', order:'down', value:'primary_release_date.desc'},
+		{name:'Título original', order:'up', value:'original_title.asc'},
+		{name:'Título original', order:'down', value:'original_title.desc'},
+		{name:'Media de votos', order:'up', value:'vote_average.asc'},
+		{name:'Media de votos', order:'down', value:'vote_average.desc'},
+		{name:'Cantidad de votos', order:'up', value:'vote_count.asc'},
+		{name:'Cantidad de votos', order:'down', value:'vote_count.desc'},
 		];
 
 		init();
