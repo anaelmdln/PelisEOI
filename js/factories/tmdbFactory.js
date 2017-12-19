@@ -6,7 +6,7 @@
 
 	function TmdbFactory($http) {
 		let themoviedb = 'https://api.themoviedb.org/3';
-		let omdb = 'http://www.omdbapi.com/?&apikey=3370463f';
+		let omdb = 'https://www.omdbapi.com/?&apikey=' + PelisEOIConfig.omdb;
 		let language = 'es';
 		let keyAndConfig = '?language=' + language + '&region=' + language + '&api_key=' + PelisEOIConfig.the_movie_db;
 		// let url = 'http://www.omdbapi.com/?i=tt3896198&apikey=';
