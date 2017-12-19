@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<aside class="col-md-3">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-2">
+					<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filters
+				</div>
+				<div class="col-md-5">
+					<a href="#!/?" ng-click="homeController.removeFilter()" class="filter_delete pull-right">Borrar</a>
+				</div>
+			</div>
+			<form class="navbar-form navbar-left form-lineal">
+				<div class="form-group col-md-12">
+					<label for="year">Year: <small>{{ homeController.filter.min_year }} - {{ homeController.filter.max_year }}</small></label>
+					<rzslider rz-slider-model="homeController.filter.min_year"
+					rz-slider-high="homeController.filter.max_year"
+					rz-slider-options="homeController.filter_year.options"></rzslider>
+				</div>
+				<div class="form-group col-md-12">
+					<label for="rate">Rate: <small>{{ homeController.filter.min_rate / 10 }} - {{ homeController.filter.max_rate / 10 }}</small></label>
+					<rzslider rz-slider-model="homeController.filter.min_rate"
+					rz-slider-high="homeController.filter.max_rate"
+					rz-slider-options="homeController.filter_rate.options"></rzslider>
+				</div>
+				<div class="form-group col-md-12">
+					<label>Categories: </label>
+					<div>
+						<a href="#!/?category={{ category.id }}" class="btn btn-default category" 
+						ng-class="{
+						'col-md-6 col-md-push-1':$index%2 === 1, 
+						'col-md-6':$index%2 === 0, 
+						'selected':homeController.filter.category === category.id}" 
+						ng-click="homeController.changeCategory(category.id)" 
+						ng-repeat="category in homeController.categories track by $index">{{category.name}}</a>
+					</div>
+				</div>
+			</form>
+		</aside>
+		<section class="col-md-9 container">
+			<div class="section-header row">
+				<div class="col-md-11">
+					<span><strong>{{ homeController.total }}</strong> films found.</span>
+				</div>
+				<div class="input-group-btn col-md-1">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Order by <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="order in homeController.orders" ng-class="{'active':homeController.filter.order_by === order.value}">
+							<a href="" ng-click="homeController.filter.order_by = order.value; homeController.applyFilter();">
+								<span class="glyphicon glyphicon glyphicon-chevron-{{ order.order }}" aria-hidden="true"></span>
+								<span> | {{ order.name }}</span>
+							</a>
+						</li>
+					</ul>
+				</div><!-- /btn-group -->
+			</div>
+			<div ng-if="homeController.films.length == 0">
+				<strong>Sorry, we haven't found movies with the parameters you have specified, try to perform a different search.</strong>
+			</div>
+			<div class="row">
+				<div class="col-md-4 film" ng-repeat="film in homeController.films track by film.id">
+					<a ng-click="homeController.getFilm(film.id)" ng-include="'./views/partials/film.html'"></a>
+				</div>
+			</div>
+		</section>
+		<film-component></film-component>
+	</div>
+</div>

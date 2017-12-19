@@ -1,0 +1,14 @@
+<div class="container">
+	<section class="col-md-12 container">
+		<div class="section-header">
+			<span><strong>{{ vmController.films ? vmController.films.length : 0 }}</strong> finded films.</span>
+		</div>
+		<div class="col-md-3 film" ng-repeat="film in vmController.films track by film.id">
+			<a ng-click="vmController.getFilm(film.id)" ng-include="'./views/partials/film.html'"></a>
+		</div>
+		<div ng-if="!vmController.films || vmController.films.length == 0">
+			<strong>Sorry, we haven't found movies with the parameters you have specified, try to perform a different search.</strong>
+		</div>
+	</section>
+	<film-component></film-component>
+</div>
