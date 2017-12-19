@@ -15,10 +15,11 @@
 			<ul class="nav navbar-nav">
 				<li ng-class="{active:mainController.view.name === 'home'}"><a href="#!/">Descubrir</a></li>
 				<li ng-class="{active:mainController.view.name === 'comingSoon'}"><a href="#!/coming_soon">Estrenos</a></li>
-				<li ng-class="{active:mainController.view.name === 'myFavorites'}"><a href="#!/my_favorites">Favoritos</a></li>
-				<li ng-class="{active:mainController.view.name === 'watchLater'}"><a href="#!/watch_later">Ver más tarde</a></li>
-				<li ng-class="{active:mainController.view.name === 'watched'}"><a href="#!/watched">Ya vistas</a></li>
-				<li ng-class="{active:mainController.view.name === 'logout'}"><a ng-click="mainController.signout()">Desconectar</a></li>
+				<li ng-if="mainController.view.auth" ng-class="{active:mainController.view.name === 'myFavorites'}"><a href="#!/my_favorites">Favoritos</a></li>
+				<li ng-if="mainController.view.auth" ng-class="{active:mainController.view.name === 'watchLater'}"><a href="#!/watch_later">Ver más tarde</a></li>
+				<li ng-if="mainController.view.auth" ng-class="{active:mainController.view.name === 'watched'}"><a href="#!/watched">Ya vistas</a></li>
+				<li ng-if="mainController.view.auth" ng-class="{active:mainController.view.name === 'logout'}"><a ng-click="mainController.signout()">Desconectar</a></li>
+				<li ng-if="!mainController.view.auth" ng-class="{active:mainController.view.name === 'login'}"><a  href="#!/login">Conectar</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<form class="navbar-form navbar-left form-lineal">

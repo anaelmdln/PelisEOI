@@ -65,10 +65,11 @@
 						else
 							view.user.watched = [];
 					}); 
-					postInit();
 				} else {
-					$location.path("/login");
+					if (!view.anonymous || view.anonymous !== true)
+						$location.path("/login");
 				}
+				postInit();
 			});
 		}
 
@@ -89,6 +90,7 @@
 		}
 
 		function signout() {
+			view.auth = null;
 			return firebase.auth().signOut().catch(function(error) {
 				console.error('Error:', error.code, error.message);
 			});

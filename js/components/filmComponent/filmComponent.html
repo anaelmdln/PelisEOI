@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="col-md-1">
-			<div class="detail_icons_wrapper">
+			<div class="detail_icons_wrapper" ng-if="filmComponent.view.auth">
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('favorites', filmComponent.view.film_detail) === -1" >
 					<a ng-click="filmComponent.add('favorites', filmComponent.view.film_detail)">
 						<span>Favoritos</span>

@@ -17,6 +17,7 @@
 		init();
 
 		function init() {
+			MainFactory.view.anonymous = false;
 		}
 
 		function signup() {
