@@ -11,7 +11,20 @@
 		<div class="col-md-4" ng-if="filmComponent.view.film_detail.poster_path">
 			<img ng-src="{{ 'https://image.tmdb.org/t/p/w500' + filmComponent.view.film_detail.poster_path }}" alt="" width="100%">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-7">
+			<h3>Sinopsis</h3>
+			<p>{{ filmComponent.view.film_detail.overview }}</p>
+			<span ng-repeat="score in filmComponent.view.film_detail.rating track by $index">
+				<span class="icon" ng-class="{'icon_star': score.Source == 'Internet Movie Database','icon_tomato': score.Source == 'Rotten Tomatoes','icon_popcorns': score.Source == 'Metacritic'}"></span>
+				<span>{{ score.Value }}</span>
+			</span>
+			<span class="icon icon_popcorns"></span><span>{{ filmComponent.view.film_detail.vote_average }}</span>
+			<div ng-if="filmComponent.view.film_detail.videos.results[0].key">
+				<h3>Trailer</h3>
+				<iframe width="560" height="315" ng-src="{{ filmComponent.getIframe(filmComponent.view.film_detail.videos.results[0].key) }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="col-md-1">
 			<div class="detail_icons_wrapper">
 				<span class="detail_icons_container" ng-if="filmComponent.getIndex('favorites', filmComponent.view.film_detail) === -1" >
 					<a ng-click="filmComponent.add('favorites', filmComponent.view.film_detail)">
@@ -55,17 +68,6 @@
 						<span class="detail_icons check glyphicon glyphicon glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 					</a>
 				</span>
-			</div>
-			<h3>Sinopsis</h3>
-			<p>{{ filmComponent.view.film_detail.overview }}</p>
-			<span ng-repeat="score in filmComponent.view.film_detail.rating track by $index">
-				<span class="icon" ng-class="{'icon_star': score.Source == 'Internet Movie Database','icon_tomato': score.Source == 'Rotten Tomatoes','icon_popcorns': score.Source == 'Metacritic'}"></span>
-				<span>{{ score.Value }}</span>
-			</span>
-			<span class="icon icon_popcorns"></span><span>{{ filmComponent.view.film_detail.vote_average }}</span>
-			<div ng-if="filmComponent.view.film_detail.videos.results[0].key">
-				<h3>Trailer</h3>
-				<iframe width="560" height="315" ng-src="{{ filmComponent.getIframe(filmComponent.view.film_detail.videos.results[0].key) }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 			</div>
 		</div>
 	</article>

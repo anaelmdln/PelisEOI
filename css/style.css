@@ -221,8 +221,10 @@ section.container {
 }
 .detail_icons_wrapper {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	font-size: 14px;
+	height: 300px;
+	flex-direction: column;
 }
 
 .glyphicon-eye-open.check {
