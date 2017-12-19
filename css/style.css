@@ -129,6 +129,19 @@ section.container {
 	display: block;
 	z-index: 100;
 }
+.related_films {
+	height: 400px;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+.related_films .film {
+	width: 250px;
+	height: 365px;
+	display: inline-block;
+	margin: 10px;
+}
 /* Film detail */
 .film_detail {
 	display: none;
@@ -149,9 +162,8 @@ section.container {
 	padding-bottom: 40px;
 }
 .film_detail .outer_area {
-	position: absolute;
+	position: fixed;
 	top: 0;
-	left: 0;
 	bottom: 0;
 }
 

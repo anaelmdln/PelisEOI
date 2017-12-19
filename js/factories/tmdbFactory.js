@@ -16,6 +16,7 @@
 		let service = {
 			getFilm: getFilm,
 			getFilms: getFilms,
+			getSimilarFilms: getSimilarFilms,
 			getFilteredFilms: getFilteredFilms,
 			getUpcomingFilms: getUpcomingFilms,
 			getRatingFromOmdb: getRatingFromOmdb,
@@ -27,6 +28,11 @@
 
 		function getFilm(id) {
 			let url = themoviedb + '/movie/' + id + keyAndConfig + '&append_to_response=videos';
+			return $http.get(url);
+		}
+
+		function getSimilarFilms(id) {
+			let url = themoviedb + '/movie/' + id + '/similar' + keyAndConfig;
 			return $http.get(url);
 		}
 

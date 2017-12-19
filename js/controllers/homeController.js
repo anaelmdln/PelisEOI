@@ -151,6 +151,10 @@
 					MainFactory.view.film_detail.rating = data.data.Ratings;
 				});
 			});
+			TmdbFactory.getSimilarFilms(id).then(data => {
+				console.log(data);
+				MainFactory.view.related_films = data.data.results;
+			});
 		}
 
 	}

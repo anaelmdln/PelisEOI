@@ -13,6 +13,7 @@
 		vm.add = add;
 		vm.remove = remove;
 		vm.getIndex = getIndex;
+		vm.getFilm = getFilm;
 		vm.getIframe = getIframe;
 		vm.close = close;
 		vm.view = MainFactory.view;
@@ -24,6 +25,19 @@
 				if (e.keyCode == 27) {
 					$("a.close").click();
 				}
+			});
+		}
+
+		function getFilm(id) {
+			TmdbFactory.getFilm(id).then(data => {
+				MainFactory.view.film_detail = data.data;
+				TmdbFactory.getRatingFromOmdb(data.data.imdb_id).then(data => {
+					MainFactory.view.film_detail.rating = data.data.Ratings;
+				});
+			});
+			TmdbFactory.getSimilarFilms(id).then(data => {
+				console.log(data);
+				MainFactory.view.related_films = data.data.results;
 			});
 		}
 

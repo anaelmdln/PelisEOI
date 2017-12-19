@@ -70,5 +70,14 @@
 				</span>
 			</div>
 		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+			<h3>Algunas películas relacionadas</h3>
+			<div class="related_films">
+				<div class="film" ng-repeat="film in filmComponent.view.related_films track by film.id">
+					<a ng-click="filmComponent.getFilm(film.id)" ng-include="'./views/partials/film.html'"></a>
+				</div>
+			</div>
+		</div>
 	</article>
 </section>

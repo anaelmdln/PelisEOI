@@ -36,6 +36,9 @@
 			TmdbFactory.getFilm(id).then(data => {
 				MainFactory.view.film_detail = data.data;
 			});
+			TmdbFactory.getSimilarFilms(id).then(data => {
+				MainFactory.view.related_films = data.data.results;
+			});
 		}
 
 	}
