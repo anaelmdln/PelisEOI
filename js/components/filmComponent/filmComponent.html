@@ -8,8 +8,8 @@
 			</h2>
 		</div>
 		<hr>
-		<div class="col-md-4" ng-if="filmComponent.view.film_detail.poster_path">
-			<img ng-src="{{ 'https://image.tmdb.org/t/p/w500' + filmComponent.view.film_detail.poster_path }}" alt="" width="100%">
+		<div class="col-md-4">
+			<img ng-src="{{ filmComponent.view.film_detail.poster_path ? 'https://image.tmdb.org/t/p/w500' + filmComponent.view.film_detail.poster_path : './assets/no-image.png' }}" alt="" width="100%">
 		</div>
 		<div class="col-md-7">
 			<h3>Sinopsis</h3>
