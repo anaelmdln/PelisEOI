@@ -23,8 +23,10 @@
 				<h3>Trailer</h3>
 				<iframe width="560" height="315" ng-src="{{ filmComponent.getIframe(filmComponent.view.film_detail.videos.results[0].key) }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 			</div>
-			<h3>Subtítulos</h3>
-			<a href="{{filmComponent.view.subtitles}}">Descargar subtítulos en español</a>
+			<div ng-if="filmComponent.view.subtitles">
+				<h3>Subtítulos</h3>
+				<a href="{{filmComponent.view.subtitles}}">Descargar subtítulos en español</a>
+			</div>
 		</div>
 		<div class="col-md-1">
 			<div class="detail_icons_wrapper" ng-if="filmComponent.view.auth">
